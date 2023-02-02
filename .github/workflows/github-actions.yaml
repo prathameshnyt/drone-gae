@@ -57,7 +57,7 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
     
-    - run: echo ${{ github.event_name }}
+    - run: echo ${GITHUB_REF}
     
     - name: Build and push
       uses: docker/build-push-action@v4
