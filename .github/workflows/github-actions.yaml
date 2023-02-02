@@ -13,7 +13,7 @@ env:
   CGO_ENABLED: 0
  
 jobs:
-   build:
+   build-publish:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
