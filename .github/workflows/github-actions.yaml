@@ -69,14 +69,14 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
   
-    - name: Send Notification for GitHub Action tag event
+    - name: Slack Notification for release tag
       if: startsWith(github.ref, 'refs/heads/main')
       id: slack
       uses: slackapi/slack-github-action@v1.23.0
       with:
         payload: |
           {
-            "text": "GitHub Action build result: ${{ job.status }}\n github.event.head_commit.url }}"
+            "text": "GitHub Action Build Result for release tag: ${{ job.status }} \n ${{ github.event.head_commit.url }}"
           }
       env:
         # webhook for #dv-cdp-alerts
