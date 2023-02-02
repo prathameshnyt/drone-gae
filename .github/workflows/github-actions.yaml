@@ -27,3 +27,7 @@ jobs:
       run: |
         go mod download
         go test -cover -vet all
+    
+    - name: Build
+      run: |
+        go build -a -ldflags "-X main.version=${GITHUB_REF_NAME} -X main.rev=${GITHUB_SHA}"
