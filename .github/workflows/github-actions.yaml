@@ -76,7 +76,11 @@ jobs:
       with:
         payload: |
           {
-            "text": "GitHub Action Build Result for release tag: ${{ job.status }} \n ${{ github.event.head_commit.url }}"
+            "text": "GitHub Action Build Result for release tag: ${{ job.status }} \n
+            triggered_by: {{ github.actor }} \n
+            job url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} \n
+            commit url: ${{ github.event.head_commit.url }}"
+            
           }
       env:
         # webhook for #dv-cdp-alerts
